@@ -1,21 +1,22 @@
+:root {
+  --primary-font: "Roboto", sans-serif;
+  --secondary-font: "Raleway", sans-serif;
+  --bg-color: #ffffff;
+  --text-color: #434455; /* Slate */
+  --title-color: #2e2f42; /* Navy */
+  --accent-color: #4d5ae5; /* Iris */
+  --active-color: #404bbf; /* Ocean */
+  --light-bg: #f4f4fd; /* Cloud */
+  --border-color: #e7e9fc; /* Cornflower */
+}
+
+/* B1: Глобальне скидання */
 body {
-  font-family: "Roboto", sans-serif;
-  color: #434455;
-  background-color: #ffffff;
-  line-height: 1.5;
   margin: 0;
-}
-
-ul,
-ol {
-  list-style-type: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-}
-
-a {
-  text-decoration: none;
+  font-family: var(--primary-font);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.5;
 }
 
 h1,
@@ -29,67 +30,140 @@ p {
   margin-bottom: 0;
 }
 
-/* --- COMPONENTS --- */
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* B6, B8: Container Class */
+.container {
+  width: 1158px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* B18: Visually Hidden Class */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* B17: Section Class (padding 120px) */
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* --- HEADER --- */
+/* B14: Нижня рамка хедера */
+.page-header {
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+}
+
+.header-container {
+  display: flex;
+  align-items: center; /* Центрування по вертикалі */
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
 
 .logo {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--secondary-font);
   font-weight: 700;
   font-size: 18px;
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #4d5ae5;
+  color: var(--accent-color);
+  margin-right: 76px; /* Відступ лого від меню */
 }
 
 .logo-studio-header {
-  color: #2e2f42;
+  color: var(--title-color);
 }
 
 .logo-studio-footer {
-  color: #f4f4fd;
+  color: var(--light-bg);
 }
 
-/* --- HEADER --- */
+.nav-list {
+  display: flex;
+  gap: 40px; /* B5: Відступ між пунктами меню */
+}
 
+/* B15: Висота посилань визначається паддінгами */
 .nav-link {
+  display: block;
+  padding: 24px 0;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #2e2f42;
+  color: var(--title-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #404bbf;
+  color: var(--active-color);
+}
+
+.contacts {
+  font-style: normal;
+  margin-left: auto; /* Відсуває контакти вправо */
+}
+
+.contacts-list {
+  display: flex;
+  gap: 40px;
 }
 
 .contacts-link {
-  font-weight: 400;
+  display: block;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #434455;
+  color: var(--text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-link:hover,
 .contacts-link:focus {
-  color: #404bbf;
-}
-
-.nav-list {
-  margin: 10px 40px;
-}
-
-.contacts-list {
-  font-style: normal;
-  margin: 20px 40px 40px 40px;
+  color: var(--active-color);
 }
 
 /* --- HERO SECTION --- */
 
 .hero {
-  background-color: #2e2f42;
+  background-color: var(--title-color);
+  padding: 188px 0;
+  background-image: none;
 }
 
 .hero-title {
@@ -98,7 +172,8 @@ p {
   text-align: center;
   letter-spacing: 0.02em;
   color: #ffffff;
-  margin-bottom: 40px;
+  max-width: 496px;
+  margin: 0 auto 48px auto; /* B3, B5: Відступ вниз 48px */
 }
 
 .hero-btn {
@@ -109,27 +184,32 @@ p {
   letter-spacing: 0.04em;
   color: #ffffff;
   cursor: pointer;
-  background-color: #4d5ae5;
+  background-color: var(--accent-color);
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  border: none;
+  border-radius: 4px;
+  margin: 0 auto; /* Центрування кнопки */
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
-  background-color: #404bbf;
+  background-color: var(--active-color);
 }
 
 /* --- FEATURES SECTION --- */
 
-.features-title {
-  margin: 20px 0;
-  font-size: 24px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
-  color: #2e2f42;
+.features-list {
+  display: flex;
+  gap: 24px; /* B10, B5: Gap between items */
 }
 
-.features-list {
-  margin-left: 40px;
+.features-item {
+  width: calc(
+    (100% - 72px) / 4
+  ); /* B11: Розрахунок ширини (100% - 3 проміжки по 24) / 4 */
 }
 
 .features-subtitle {
@@ -137,21 +217,21 @@ p {
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: #2e2f42;
+  color: var(--title-color);
+  margin-bottom: 8px; /* B3 */
 }
 
 .features-text {
-  margin: 20px 0;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #434455;
+  color: var(--text-color);
 }
 
 /* --- TEAM SECTION --- */
 
 .team {
-  background-color: #f4f4fd;
+  background-color: var(--light-bg);
 }
 
 .team-title {
@@ -160,22 +240,36 @@ p {
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: capitalize;
-  color: #2e2f42;
+  color: var(--title-color);
+  margin-bottom: 72px; /* B5: Відступ від заголовка до списку */
+}
+
+.team-list {
+  display: flex;
+  gap: 24px;
 }
 
 .team-item {
-  margin: 20px 40px;
   background-color: #ffffff;
+  width: calc((100% - 72px) / 4);
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+/* Контейнер для тексту в картці Team */
+.team-content {
+  padding: 32px 0;
 }
 
 .team-subtitle {
-  margin: 20px 0;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #2e2f42;
+  color: var(--title-color);
+  margin-bottom: 8px;
 }
 
 .team-text {
@@ -183,14 +277,10 @@ p {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #434455;
+  color: var(--text-color);
 }
 
 /* --- PORTFOLIO SECTION --- */
-
-.portfolio-list {
-  margin: 20px 40px;
-}
 
 .portfolio-title {
   font-size: 36px;
@@ -198,37 +288,73 @@ p {
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: capitalize;
-  color: #2e2f42;
+  color: var(--title-color);
+  margin-bottom: 72px;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяє перенос карток на новий рядок */
+  column-gap: 24px; /* Відступ між колонками */
+  row-gap: 48px; /* Відступ між рядками */
+}
+
+.portfolio-item {
+  width: calc((100% - 48px) / 3); /* (100% - 2 проміжки по 24) / 3 */
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+/* B19: Рамка тільки у нижній частині картки */
+.portfolio-content {
+  padding: 32px 16px;
+  border: 1px solid var(--border-color);
+  border-top: none; /* Прибираємо верхню рамку, бо там картинка */
 }
 
 .portfolio-subtitle {
-  margin: 15px 0;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: #2e2f42;
+  color: var(--title-color);
+  margin-bottom: 8px;
 }
 
 .portfolio-text {
-  margin: 15px 0;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #434455;
+  color: var(--text-color);
 }
 
 /* --- FOOTER --- */
 
 .page-footer {
-  background-color: #2e2f42;
+  background-color: var(--title-color);
+  padding: 100px 0;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 16px;
 }
 
 .footer-text {
-  font-size: 16px;
-  font-weight: 400;
-  margin-top: 10px;
   line-height: 1.5;
-  color: #f4f4fd;
+  color: var(--light-bg);
   letter-spacing: 0.02em;
+  max-width: 264px;
+}
+
+.team-item img {
+  width: 100%;
+}
+
+.portfolio-item img {
+  width: 100%;
 }
